@@ -10,47 +10,161 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #0b0b0b;
+  background: #0b0b0b;
   color: white;
   min-height: 100vh;
 }
 
 
 /* ==============================
-   PÁGINA
+   CABEÇALHO
 ================================= */
 
-.pagina {
-  min-height: 100vh;
+.cabecalho {
+  background: #111111;
+  border-bottom: 1px solid #333;
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.cabecalho h1 {
+  font-size: 34px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+
+/* ==============================
+   MENU
+================================= */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: #dddddd;
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: white;
+  color: #0b0b0b;
+  transform: translateY(-2px);
+}
+
+
+/* ==============================
+   ÁREA PRINCIPAL
+================================= */
+
+main {
+  min-height: calc(100vh - 130px);
+}
+
+
+/* ==============================
+   PÁGINA INICIAL
+================================= */
+
+.pagina-inicio {
+  min-height: calc(100vh - 130px);
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
   padding: 40px 20px;
 }
 
+.pagina-inicio h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
 
-/* ==============================
-   TÍTULO
-================================= */
-
-.pagina h1 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.pagina-inicio p {
+  color: #cccccc;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 
 /* ==============================
-   ÁREA DOS CARDS
+   BOTÃO
+================================= */
+
+.botao {
+  display: inline-block;
+
+  margin-top: 25px;
+
+  padding: 12px 24px;
+
+  background: white;
+  color: #0b0b0b;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  border-radius: 8px;
+
+  transition: 0.3s;
+}
+
+.botao:hover {
+  background: #cccccc;
+  transform: translateY(-3px);
+}
+
+
+/* ==============================
+   PÁGINA DE FILMES
+================================= */
+
+.pagina {
+  padding: 50px 20px;
+}
+
+.pagina > h1 {
+  text-align: center;
+
+  font-size: 36px;
+
+  margin-bottom: 40px;
+}
+
+
+/* ==============================
+   CARDS
 ================================= */
 
 .cards {
   display: flex;
+
   justify-content: center;
+
   align-items: stretch;
+
   gap: 25px;
+
   max-width: 1100px;
+
   margin: 0 auto;
+
+  flex-wrap: wrap;
 }
 
 
@@ -60,38 +174,34 @@ body {
 
 .card {
   width: 320px;
+
   min-height: 230px;
 
   padding: 25px;
 
   background: linear-gradient(
     145deg,
-    #151515,
-    #050505
+    #181818,
+    #080808
   );
 
-  border: 2px solid #ffffff;
+  border: 1px solid #444;
 
-  border-radius: 12px;
+  border-radius: 14px;
 
   box-shadow:
-    0 0 8px rgba(255, 255, 255, 0.5),
-    0 0 20px rgba(255, 255, 255, 0.15);
+    0 5px 20px rgba(0, 0, 0, 0.5);
 
   transition: 0.3s;
 }
 
-
-/* ==============================
-   EFEITO AO PASSAR O MOUSE
-================================= */
-
 .card:hover {
   transform: translateY(-8px);
 
+  border-color: white;
+
   box-shadow:
-    0 0 10px rgba(255, 255, 255, 0.7),
-    0 0 30px rgba(255, 255, 255, 0.3);
+    0 10px 30px rgba(255, 255, 255, 0.15);
 }
 
 
@@ -101,11 +211,12 @@ body {
 
 .card h2 {
   font-size: 24px;
+
   margin-bottom: 25px;
 
-  color: rgb(255, 255, 255);
+  color: white;
 
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid #444;
 
   padding-bottom: 12px;
 }
@@ -117,18 +228,43 @@ body {
 
 .card p {
   font-size: 16px;
+
   margin-bottom: 14px;
-  color: #dddddd;
-  line-height: 1.4;
+
+  color: #cccccc;
+
+  line-height: 1.5;
 }
 
 
 /* ==============================
-   TEXTO EM NEGRITO
+   PÁGINAS SOBRE / CONTATO
 ================================= */
 
-.card p strong {
-  color: white;
+.pagina-texto {
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  padding: 70px 25px;
+
+  text-align: center;
+}
+
+.pagina-texto h1 {
+  font-size: 36px;
+
+  margin-bottom: 30px;
+}
+
+.pagina-texto p {
+  color: #cccccc;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  margin-bottom: 15px;
 }
 
 
@@ -136,33 +272,31 @@ body {
    RESPONSIVIDADE
 ================================= */
 
-@media (max-width: 900px) {
-
-  .cards {
-    flex-wrap: wrap;
-  }
-
-  .card {
-    width: 45%;
-  }
-
-}
-
-
 @media (max-width: 600px) {
 
-  .pagina {
-    padding: 30px 15px;
-  }
-
-  .pagina h1 {
+  .cabecalho h1 {
     font-size: 28px;
-    margin-bottom: 30px;
   }
 
-  .cards {
-    flex-direction: column;
-    align-items: center;
+  nav {
+    gap: 5px;
+  }
+
+  nav a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .pagina-inicio h1 {
+    font-size: 32px;
+  }
+
+  .pagina {
+    padding: 35px 15px;
+  }
+
+  .pagina > h1 {
+    font-size: 28px;
   }
 
   .card {
