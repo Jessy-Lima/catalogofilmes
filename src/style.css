@@ -1,6 +1,6 @@
-/* ==============================
+/* =========================================
    CONFIGURAÇÕES GERAIS
-================================= */
+========================================= */
 
 * {
   margin: 0;
@@ -10,298 +10,734 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #0b0b0b;
+
+  background: #080808;
+
   color: white;
+
   min-height: 100vh;
 }
 
 
-/* ==============================
+/* =========================================
    CABEÇALHO
-================================= */
+========================================= */
 
 .cabecalho {
-  background: #111111;
-  border-bottom: 1px solid #333;
-  padding: 25px 20px;
-  text-align: center;
+  height: 75px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 45px;
+
+  background: #080808;
+
+  border-bottom: 1px solid #222;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
 }
 
-.cabecalho h1 {
-  font-size: 34px;
-  margin-bottom: 20px;
+
+/* LOGO */
+
+.logo {
+  font-size: 23px;
+
+  font-weight: bold;
+
+  color: #e50914;
+
+  white-space: nowrap;
+}
+
+.logo span {
   color: white;
+
+  margin-left: 5px;
+
+  letter-spacing: 1px;
 }
 
 
-/* ==============================
+/* =========================================
    MENU
-================================= */
+========================================= */
 
 nav {
   display: flex;
-  justify-content: center;
+
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+
+  gap: 30px;
+
+  margin-left: 60px;
 }
 
 nav a {
+  color: #bdbdbd;
+
   text-decoration: none;
-  color: #dddddd;
+
+  font-size: 15px;
+
   font-weight: bold;
-  padding: 10px 18px;
-  border-radius: 8px;
+
   transition: 0.3s;
 }
 
 nav a:hover {
-  background: white;
-  color: #0b0b0b;
-  transform: translateY(-2px);
+  color: white;
 }
 
 
-/* ==============================
-   ÁREA PRINCIPAL
-================================= */
+/* PERFIL */
 
-main {
-  min-height: calc(100vh - 130px);
+.perfil {
+  margin-left: auto;
+
+  font-size: 23px;
+
+  cursor: pointer;
 }
 
 
-/* ==============================
-   PÁGINA INICIAL
-================================= */
+/* =========================================
+   HOME
+========================================= */
 
-.pagina-inicio {
-  min-height: calc(100vh - 130px);
+.home {
+  min-height: calc(100vh - 75px);
+
+  background: #080808;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 600px;
 
   display: flex;
-  flex-direction: column;
 
-  justify-content: center;
   align-items: center;
 
-  text-align: center;
+  padding: 80px 8%;
 
-  padding: 40px 20px;
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 50%,
+      rgba(229, 9, 20, 0.25),
+      transparent 35%
+    ),
+    linear-gradient(
+      90deg,
+      #080808 20%,
+      #101010 60%,
+      #160909
+    );
 }
 
-.pagina-inicio h1 {
-  font-size: 42px;
-  margin-bottom: 20px;
+
+/* EFEITO DECORATIVO */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+
+  height: 450px;
+
+  right: 8%;
+
+  top: 80px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(229, 9, 20, 0.35),
+      transparent 65%
+    );
+
+  filter: blur(20px);
 }
 
-.pagina-inicio p {
-  color: #cccccc;
-  font-size: 18px;
-  margin-bottom: 10px;
+
+/* CONTEÚDO */
+
+.hero-conteudo {
+  max-width: 620px;
+
+  position: relative;
+
+  z-index: 2;
 }
 
 
-/* ==============================
-   BOTÃO
-================================= */
+/* TAG */
 
-.botao {
-  display: inline-block;
+.destaque {
+  color: #e50914;
 
-  margin-top: 25px;
-
-  padding: 12px 24px;
-
-  background: white;
-  color: #0b0b0b;
-
-  text-decoration: none;
+  font-size: 13px;
 
   font-weight: bold;
 
-  border-radius: 8px;
-
-  transition: 0.3s;
-}
-
-.botao:hover {
-  background: #cccccc;
-  transform: translateY(-3px);
+  letter-spacing: 3px;
 }
 
 
-/* ==============================
-   PÁGINA DE FILMES
-================================= */
+/* TÍTULO */
 
-.pagina {
-  padding: 50px 20px;
-}
+.hero h1 {
+  font-size: 70px;
 
-.pagina > h1 {
-  text-align: center;
+  margin: 15px 0;
 
-  font-size: 36px;
+  letter-spacing: 4px;
 
-  margin-bottom: 40px;
+  font-weight: 900;
 }
 
 
-/* ==============================
-   CARDS
-================================= */
+/* INFORMAÇÕES */
 
-.cards {
-  display: flex;
+.hero-info {
+  color: #ddd;
 
-  justify-content: center;
+  font-weight: bold;
 
-  align-items: stretch;
-
-  gap: 25px;
-
-  max-width: 1100px;
-
-  margin: 0 auto;
-
-  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 
-/* ==============================
-   CARD DO FILME
-================================= */
+/* DESCRIÇÃO */
 
-.card {
-  width: 320px;
-
-  min-height: 230px;
-
-  padding: 25px;
-
-  background: linear-gradient(
-    145deg,
-    #181818,
-    #080808
-  );
-
-  border: 1px solid #444;
-
-  border-radius: 14px;
-
-  box-shadow:
-    0 5px 20px rgba(0, 0, 0, 0.5);
-
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-
-  border-color: white;
-
-  box-shadow:
-    0 10px 30px rgba(255, 255, 255, 0.15);
-}
-
-
-/* ==============================
-   NOME DO FILME
-================================= */
-
-.card h2 {
-  font-size: 24px;
-
-  margin-bottom: 25px;
-
-  color: white;
-
-  border-bottom: 1px solid #444;
-
-  padding-bottom: 12px;
-}
-
-
-/* ==============================
-   INFORMAÇÕES
-================================= */
-
-.card p {
-  font-size: 16px;
-
-  margin-bottom: 14px;
-
-  color: #cccccc;
-
-  line-height: 1.5;
-}
-
-
-/* ==============================
-   PÁGINAS SOBRE / CONTATO
-================================= */
-
-.pagina-texto {
-  max-width: 800px;
-
-  margin: 0 auto;
-
-  padding: 70px 25px;
-
-  text-align: center;
-}
-
-.pagina-texto h1 {
-  font-size: 36px;
-
-  margin-bottom: 30px;
-}
-
-.pagina-texto p {
-  color: #cccccc;
+.descricao {
+  color: #aaa;
 
   font-size: 17px;
 
   line-height: 1.7;
 
-  margin-bottom: 15px;
+  max-width: 550px;
 }
 
 
-/* ==============================
+/* =========================================
+   BOTÕES DO HERO
+========================================= */
+
+.hero-botoes {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+.botao-principal,
+.botao-secundario {
+  padding: 13px 22px;
+
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+
+/* BOTÃO VERMELHO */
+
+.botao-principal {
+  background: #e50914;
+
+  color: white;
+}
+
+.botao-principal:hover {
+  background: #b20710;
+
+  transform: scale(1.03);
+}
+
+
+/* BOTÃO ESCURO */
+
+.botao-secundario {
+  background: #333;
+
+  color: white;
+}
+
+.botao-secundario:hover {
+  background: #555;
+}
+
+
+/* =========================================
+   SEÇÃO DE FILMES
+========================================= */
+
+.secao-filmes {
+  padding: 45px 7%;
+}
+
+.secao-filmes h2 {
+  font-size: 25px;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================
+   MINI CARDS DA HOME
+========================================= */
+
+.mini-cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.mini-card {
+  cursor: pointer;
+}
+
+.mini-card h3 {
+  margin-top: 12px;
+
+  font-size: 18px;
+}
+
+.mini-card p {
+  margin-top: 5px;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   POSTERS
+========================================= */
+
+.poster {
+  height: 320px;
+
+  border-radius: 7px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 20px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition: 0.35s;
+
+  background: #222;
+}
+
+
+/* EFEITO HOVER */
+
+.poster:hover {
+  transform: scale(1.03);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+
+/* TEXTO DO POSTER */
+
+.poster span {
+  position: relative;
+
+  z-index: 2;
+
+  font-size: 22px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 3px 8px black;
+}
+
+
+/* =========================================
+   VISUAIS DOS FILMES
+========================================= */
+
+.poster-matrix {
+  background:
+    linear-gradient(
+      to top,
+      #001b12,
+      #063b25,
+      #111
+    );
+}
+
+.poster-interestelar {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #d8d8d8 0%,
+      #555 8%,
+      #111 30%,
+      #000 65%
+    );
+}
+
+.poster-chefao {
+  background:
+    linear-gradient(
+      145deg,
+      #190b05,
+      #5a160b,
+      #080000
+    );
+}
+
+
+/* =========================================
+   PÁGINA DE FILMES
+========================================= */
+
+.pagina-filmes {
+  padding: 55px 7% 80px;
+
+  min-height: calc(100vh - 75px);
+}
+
+
+/* TÍTULO */
+
+.titulo-pagina span {
+  color: #e50914;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+}
+
+.titulo-pagina h1 {
+  font-size: 38px;
+
+  margin: 8px 0;
+}
+
+.titulo-pagina p {
+  color: #888;
+}
+
+
+/* =========================================
+   FILTROS
+========================================= */
+
+.filtros {
+  display: flex;
+
+  gap: 10px;
+
+  margin: 35px 0;
+}
+
+.filtros button {
+  border: 1px solid #333;
+
+  background: #151515;
+
+  color: #bbb;
+
+  padding: 9px 17px;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.filtros button:hover,
+.filtros .filtro-ativo {
+  background: #e50914;
+
+  border-color: #e50914;
+
+  color: white;
+}
+
+
+/* =========================================
+   GRID DOS FILMES
+========================================= */
+
+.cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 25px;
+
+  max-width: 1250px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+  background: #151515;
+
+  border-radius: 9px;
+
+  overflow: hidden;
+
+  border: 1px solid #242424;
+
+  transition: 0.35s;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+
+  border-color: #444;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+
+/* POSTER DO CARD */
+
+.card .poster {
+  height: 350px;
+
+  border-radius: 0;
+}
+
+
+/* =========================================
+   CONTEÚDO DO CARD
+========================================= */
+
+.card-conteudo {
+  padding: 20px;
+}
+
+
+/* TÍTULO + NOTA */
+
+.card-titulo {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.card-titulo h2 {
+  font-size: 20px;
+}
+
+
+/* AVALIAÇÃO */
+
+.avaliacao {
+  color: #ffd700;
+
+  font-size: 13px;
+
+  white-space: nowrap;
+}
+
+
+/* ANO E GÊNERO */
+
+.ano-genero {
+  color: #999;
+
+  font-size: 13px;
+
+  margin-top: 8px;
+}
+
+
+/* DIRETOR */
+
+.diretor {
+  color: #777;
+
+  font-size: 13px;
+
+  margin-top: 12px;
+}
+
+
+/* =========================================
+   BOTÃO DO CARD
+========================================= */
+
+.botao-card {
+  margin-top: 18px;
+
+  width: 100%;
+
+  padding: 11px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #e50914;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.botao-card:hover {
+  background: #b20710;
+}
+
+
+/* =========================================
    RESPONSIVIDADE
-================================= */
+========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
 
-  .cabecalho h1 {
-    font-size: 28px;
+  .cabecalho {
+    padding: 0 20px;
   }
 
   nav {
-    gap: 5px;
+    margin-left: 25px;
+
+    gap: 15px;
   }
 
-  nav a {
-    padding: 8px 12px;
-    font-size: 14px;
+  .hero h1 {
+    font-size: 50px;
   }
 
-  .pagina-inicio h1 {
-    font-size: 32px;
+  .cards,
+  .mini-cards {
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
-  .pagina {
-    padding: 35px 15px;
+}
+
+
+@media (max-width: 600px) {
+
+  .cabecalho {
+    height: auto;
+
+    padding: 18px;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
   }
 
-  .pagina > h1 {
-    font-size: 28px;
-  }
+  nav {
+    order: 3;
 
-  .card {
     width: 100%;
-    max-width: 350px;
+
+    margin-left: 0;
+
+    justify-content: center;
+
+    gap: 18px;
+  }
+
+  .hero {
+    min-height: 500px;
+
+    padding: 50px 25px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+
+    letter-spacing: 2px;
+  }
+
+  .descricao {
+    font-size: 15px;
+  }
+
+  .hero-botoes {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .cards,
+  .mini-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .pagina-filmes {
+    padding: 40px 20px;
+  }
+
+  .filtros {
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+  }
+
+  .card .poster,
+  .poster {
+    height: 400px;
   }
 
 }

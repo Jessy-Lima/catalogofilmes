@@ -12,14 +12,20 @@ function App() {
 
       <header className="cabecalho">
 
-        <h1>🎬 Catálogo de Filmes</h1>
+        <div className="logo">
+          🎬 <span>CATÁLOGO</span>
+        </div>
 
         <nav>
-          <Link to="/">Home</Link>
+          <Link to="/">Início</Link>
           <Link to="/filmes">Filmes</Link>
           <Link to="/sobre">Sobre</Link>
           <Link to="/contato">Contato</Link>
         </nav>
+
+        <div className="perfil">
+          👤
+        </div>
 
       </header>
 

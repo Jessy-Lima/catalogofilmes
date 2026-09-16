@@ -3,9 +3,41 @@ import Filme from "../Filme";
 
 function Filmes() {
   return (
-    <div className="pagina">
+    <div className="pagina-filmes">
 
-      <h1>🎬 Nossos Filmes</h1>
+      <div className="titulo-pagina">
+
+        <span>CATÁLOGO</span>
+
+        <h1>Todos os filmes</h1>
+
+        <p>
+          Explore nossa seleção de filmes.
+        </p>
+
+      </div>
+
+
+      <div className="filtros">
+
+        <button className="filtro-ativo">
+          Todos
+        </button>
+
+        <button>
+          Ação
+        </button>
+
+        <button>
+          Drama
+        </button>
+
+        <button>
+          Ficção Científica
+        </button>
+
+      </div>
+
 
       <div className="cards">
 
@@ -14,6 +46,8 @@ function Filmes() {
           ano="1999"
           genero="Ficção Científica"
           diretor="Lana e Lilly Wachowski"
+          avaliacao="8.7"
+          classe="poster-matrix"
         />
 
         <Filme
@@ -21,6 +55,8 @@ function Filmes() {
           ano="2014"
           genero="Ficção Científica"
           diretor="Christopher Nolan"
+          avaliacao="9.2"
+          classe="poster-interestelar"
         />
 
         <Filme
@@ -28,6 +64,8 @@ function Filmes() {
           ano="1972"
           genero="Drama / Policial"
           diretor="Francis Ford Coppola"
+          avaliacao="9.2"
+          classe="poster-chefao"
         />
 
       </div>
