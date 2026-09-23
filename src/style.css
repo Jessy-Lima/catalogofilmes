@@ -766,3 +766,22 @@ nav a:hover {
   justify-content: center;
   gap: 8px;
 }
+
+/* =========================================================
+   POSTERS DOS FILMES
+========================================================= */
+
+.poster {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}

@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Filme from "../Filme";
+import tmdb from "../services/tmdb";
 
 function Filmes() {
+  const [filmes, setFilmes] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState("");
+
+  useEffect(() => {
+    async function buscarFilmes() {
+      try {
+        const resposta = await tmdb.get("/discover/movie", {
+          params: {
+            sort_by: "popularity.desc",
+            page: 1
+          }
+        });
+
+        setFilmes(resposta.data.results);
+      } catch (error) {
+        console.error("Erro ao buscar filmes:", error);
+        setErro("Não foi possível carregar os filmes.");
+      } finally {
+        setCarregando(false);
+      }
+    }
+
+    buscarFilmes();
+  }, []);
+
   return (
     <div className="pagina-filmes">
 
@@ -39,34 +66,46 @@ function Filmes() {
       </div>
 
 
+      {carregando && (
+        <p>Carregando filmes...</p>
+      )}
+
+      {erro && (
+        <p>{erro}</p>
+      )}
+
+
       <div className="cards">
 
-        <Filme
-          nome="Matrix"
-          ano="1999"
-          genero="Ficção Científica"
-          diretor="Lana e Lilly Wachowski"
-          avaliacao="8.7"
-          classe="poster-matrix"
-        />
+        {filmes.map((filme) => (
+          <Filme
+            key={filme.id}
 
-        <Filme
-          nome="Interestelar"
-          ano="2014"
-          genero="Ficção Científica"
-          diretor="Christopher Nolan"
-          avaliacao="9.2"
-          classe="poster-interestelar"
-        />
+            nome={filme.title}
 
-        <Filme
-          nome="O Poderoso Chefão"
-          ano="1972"
-          genero="Drama / Policial"
-          diretor="Francis Ford Coppola"
-          avaliacao="9.2"
-          classe="poster-chefao"
-        />
+            ano={
+              filme.release_date
+                ? filme.release_date.slice(0, 4)
+                : "N/A"
+            }
+
+            genero="Filme"
+
+            diretor="Não informado"
+
+            avaliacao={
+              filme.vote_average
+                ? filme.vote_average.toFixed(1)
+                : "N/A"
+            }
+
+            imagem={
+              filme.poster_path
+                ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
+                : null
+            }
+          />
+        ))}
 
       </div>
 

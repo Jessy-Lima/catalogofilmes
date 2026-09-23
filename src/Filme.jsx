@@ -7,18 +7,18 @@ function Filme({
   genero,
   diretor,
   avaliacao,
-  classe
+  imagem
 }) {
-
   return (
     <div className="card">
 
-      <div className={`poster ${classe}`}>
-
-        <span>{nome}</span>
-
+      <div className="poster">
+        {imagem ? (
+          <img src={imagem} alt={`Poster do filme ${nome}`} />
+        ) : (
+          <span>{nome}</span>
+        )}
       </div>
-
 
       <div className="card-conteudo">
 
@@ -32,16 +32,13 @@ function Filme({
 
         </div>
 
-
         <p className="ano-genero">
           {ano} • {genero}
         </p>
 
-
         <p className="diretor">
           Diretor: {diretor}
         </p>
-
 
         <button className="botao-card">
           <FaPlay /> Assistir
