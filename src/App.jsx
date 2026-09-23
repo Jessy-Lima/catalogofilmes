@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { FaFilm, FaUser, FaStar, FaPlay } from "react-icons/fa";
 
 import Home from "./pages/Home";
 import Filmes from "./pages/Filmes";
@@ -13,7 +14,8 @@ function App() {
       <header className="cabecalho">
 
         <div className="logo">
-          🎬 <span>CATÁLOGO</span>
+          <FaFilm />
+          <span>CATÁLOGO</span>
         </div>
 
         <nav>
@@ -24,7 +26,7 @@ function App() {
         </nav>
 
         <div className="perfil">
-          👤
+          <FaUser />
         </div>
 
       </header>

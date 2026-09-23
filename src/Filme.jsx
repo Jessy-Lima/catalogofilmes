@@ -1,4 +1,5 @@
 import React from "react";
+import { FaStar, FaPlay } from "react-icons/fa";
 
 function Filme({
   nome,
@@ -26,7 +27,7 @@ function Filme({
           <h2>{nome}</h2>
 
           <span className="avaliacao">
-            ⭐ {avaliacao}
+            <FaStar /> {avaliacao}
           </span>
 
         </div>
@@ -43,7 +44,7 @@ function Filme({
 
 
         <button className="botao-card">
-          ▶ Assistir
+          <FaPlay /> Assistir
         </button>
 
       </div>
