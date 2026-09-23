@@ -13,11 +13,43 @@ function Filmes() {
         const resposta = await tmdb.get("/discover/movie", {
           params: {
             sort_by: "popularity.desc",
-            page: 1
+            page: 1,
+            watch_region: "BR"
           }
         });
 
-        setFilmes(resposta.data.results);
+        const filmesEncontrados = resposta.data.results;
+
+        const filmesComDisponibilidade = await Promise.all(
+          filmesEncontrados.map(async (filme) => {
+            try {
+              const provedores = await tmdb.get(
+                `/movie/${filme.id}/watch/providers`
+              );
+
+              const brasil = provedores.data.results?.BR;
+
+              return {
+                ...filme,
+                assistirUrl: brasil?.link || null
+              };
+
+            } catch (error) {
+              console.error(
+                `Erro ao buscar disponibilidade de ${filme.title}:`,
+                error
+              );
+
+              return {
+                ...filme,
+                assistirUrl: null
+              };
+            }
+          })
+        );
+
+        setFilmes(filmesComDisponibilidade);
+
       } catch (error) {
         console.error("Erro ao buscar filmes:", error);
         setErro("Não foi possível carregar os filmes.");
@@ -70,6 +102,7 @@ function Filmes() {
         <p>Carregando filmes...</p>
       )}
 
+
       {erro && (
         <p>{erro}</p>
       )}
@@ -78,6 +111,7 @@ function Filmes() {
       <div className="cards">
 
         {filmes.map((filme) => (
+
           <Filme
             key={filme.id}
 
@@ -104,7 +138,10 @@ function Filmes() {
                 ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
                 : null
             }
+
+            assistirUrl={filme.assistirUrl}
           />
+
         ))}
 
       </div>

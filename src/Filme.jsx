@@ -7,18 +7,33 @@ function Filme({
   genero,
   diretor,
   avaliacao,
-  imagem
+  imagem,
+  assistirUrl
 }) {
+  function assistirFilme() {
+    if (assistirUrl) {
+      window.open(assistirUrl, "_blank", "noopener,noreferrer");
+    } else {
+      alert("Não encontramos onde este filme está disponível.");
+    }
+  }
+
   return (
     <div className="card">
 
       <div className="poster">
+
         {imagem ? (
-          <img src={imagem} alt={`Poster do filme ${nome}`} />
+          <img
+            src={imagem}
+            alt={`Poster do filme ${nome}`}
+          />
         ) : (
           <span>{nome}</span>
         )}
+
       </div>
+
 
       <div className="card-conteudo">
 
@@ -32,15 +47,21 @@ function Filme({
 
         </div>
 
+
         <p className="ano-genero">
           {ano} • {genero}
         </p>
+
 
         <p className="diretor">
           Diretor: {diretor}
         </p>
 
-        <button className="botao-card">
+
+        <button
+          className="botao-card"
+          onClick={assistirFilme}
+        >
           <FaPlay /> Assistir
         </button>
 
